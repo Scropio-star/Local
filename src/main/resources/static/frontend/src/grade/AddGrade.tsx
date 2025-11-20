@@ -1,13 +1,14 @@
 import React from "react";
 import axios from "axios";
 import {
-  Paper,
-  Button,
-  Typography,
-  Select,
-  MenuItem,
-  TextField,
   Alert,
+  Button,
+  MenuItem,
+  Paper,
+  Select,
+  Stack,
+  TextField,
+  Typography,
 } from "@mui/material";
 import {
   AddGradeBody,
@@ -48,53 +49,86 @@ function AddGrade(props: { update: Function }) {
   }
 
   return (
-    <Paper sx={{ padding: "30px" }}>
-      <Typography variant="h5">Add Grade</Typography>
-      <br />
-      <br />
-      <Select
-        sx={{ minWidth: "300px" }}
-        value={grade.student_id ?? ""}
-        onChange={(e) => setGrade({ ...grade, student_id: e.target.value })}
-        label="Student"
-      >
-        {students &&
-          students.map((s) => {
-            return (
-              <MenuItem
-                key={s.id}
-                value={s.id}
-              >{`${s.firstName} ${s.lastName} (${s.id})`}</MenuItem>
-            );
-          })}
-      </Select>
-      <Select
-        sx={{ minWidth: "300px" }}
-        value={grade.module_code ?? ""}
-        onChange={(e) => setGrade({ ...grade, module_code: e.target.value })}
-        label="Module"
-      >
-        {modules &&
-          modules.map((m) => {
-            return (
-              <MenuItem
-                key={m.code}
-                value={m.code}
-              >{`${m.code} ${m.name}`}</MenuItem>
-            );
-          })}
-      </Select>
-      <TextField
-        label="Score"
-        value={grade.score ?? 0}
-        onChange={(e) => setGrade({ ...grade, score: e.target.value })}
-      />
-      <br />
-      <br />
-      <Button onClick={request}>Add</Button>
-      <br />
-      <br />
-      {error && <Alert color="error">{error}</Alert>}
+    <Paper
+      elevation={0}
+      sx={{
+        padding: { xs: 2, md: 3 },
+        borderRadius: 3,
+        border: "1px solid #dbeafe",
+        background: "linear-gradient(145deg, #ffffff, #edf5ff)",
+      }}
+    >
+      <Stack spacing={2.5}>
+        <Stack spacing={0.5}>
+          <Typography variant="h6" fontWeight={700} color="#0f172a">
+            Add a grade
+          </Typography>
+          <Typography color="#475569">
+            Pair a student with a module and record the associated score.
+          </Typography>
+        </Stack>
+
+        <Stack spacing={1.5} direction={{ xs: "column", sm: "row" }}>
+          <Select
+            fullWidth
+            value={grade.student_id ?? ""}
+            onChange={(e) => setGrade({ ...grade, student_id: e.target.value })}
+            displayEmpty
+          >
+            <MenuItem disabled value="">
+              Select student
+            </MenuItem>
+            {students &&
+              students.map((s) => {
+                return (
+                  <MenuItem
+                    key={s.id}
+                    value={s.id}
+                  >{`${s.firstName} ${s.lastName} (${s.id})`}</MenuItem>
+                );
+              })}
+          </Select>
+
+          <Select
+            fullWidth
+            value={grade.module_code ?? ""}
+            onChange={(e) => setGrade({ ...grade, module_code: e.target.value })}
+            displayEmpty
+          >
+            <MenuItem disabled value="">
+              Select module
+            </MenuItem>
+            {modules &&
+              modules.map((m) => {
+                return (
+                  <MenuItem key={m.code} value={m.code}>{`${m.code} ${m.name}`}</MenuItem>
+                );
+              })}
+          </Select>
+        </Stack>
+
+        <TextField
+          label="Score"
+          type="number"
+          value={grade.score ?? ""}
+          onChange={(e) => setGrade({ ...grade, score: e.target.value })}
+        />
+
+        <Stack direction="row" spacing={1}>
+          <Button variant="contained" onClick={request}>
+            Save grade
+          </Button>
+          <Button
+            variant="outlined"
+            onClick={() => setGrade({})}
+            sx={{ borderColor: "#bfdbfe", color: "#0f172a", ":hover": { borderColor: "#60a5fa" } }}
+          >
+            Clear
+          </Button>
+        </Stack>
+
+        {error && <Alert color="error">{error}</Alert>}
+      </Stack>
     </Paper>
   );
 }
