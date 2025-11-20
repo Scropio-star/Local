@@ -6,11 +6,11 @@ import {
   Breadcrumbs,
   Divider,
   Grid,
-  Link,
   Paper,
   Stack,
   Typography,
 } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 import App from "../App.tsx";
 import {
   EntityModelGrade,
@@ -91,9 +91,14 @@ function Grades() {
     <App>
       <Stack spacing={3}>
         <Breadcrumbs>
-          <Link underline="hover" color="inherit" href="/">
+          <Typography
+            component={RouterLink}
+            to="/"
+            color="inherit"
+            sx={{ textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+          >
             Home
-          </Link>
+          </Typography>
           <Typography color="#1e293b">Grades</Typography>
         </Breadcrumbs>
 

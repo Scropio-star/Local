@@ -6,6 +6,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -58,7 +59,8 @@ function App(props: { children: React.ReactNode }) {
                 {navLinks.map((link) => (
                   <Button
                     key={link.href}
-                    href={link.href}
+                    component={RouterLink}
+                    to={link.href}
                     variant="outlined"
                     size="small"
                     sx={{

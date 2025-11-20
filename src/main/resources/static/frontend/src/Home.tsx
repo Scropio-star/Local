@@ -8,6 +8,7 @@ import {
   Typography,
   Stack,
 } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 
 import App from "./App";
 
@@ -55,7 +56,11 @@ function Home() {
                   height: "100%",
                 }}
               >
-                <CardActionArea href={item.href} sx={{ height: "100%" }}>
+                <CardActionArea
+                  component={RouterLink}
+                  to={item.href}
+                  sx={{ height: "100%" }}
+                >
                   <CardContent>
                     <Typography variant="h6" fontWeight={700} color="#0f172a">
                       {item.title}
