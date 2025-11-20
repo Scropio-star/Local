@@ -12,95 +12,95 @@ const parseCollection = (payload, key) => {
 };
 
 const SectionCard = ({ title, description, children, actions }) => (
-    <section className="bg-white shadow-sm border border-slate-200 rounded-xl overflow-hidden">
-      <div className="h-1 w-full bg-yellow-400" />
-      <div className="px-6 py-4 flex items-start justify-between gap-4 border-b border-slate-200 bg-slate-50">
-        <div>
-          <h2 className="text-lg font-semibold text-slate-900 tracking-tight">{title}</h2>
-          {description && <p className="mt-1 text-xs text-slate-600">{description}</p>}
-        </div>
-        {actions && (
-            <div className="text-xs text-slate-500 whitespace-nowrap">
-              {actions}
-            </div>
-        )}
+  <section className="bg-white/90 shadow-md border border-sky-100 rounded-2xl overflow-hidden backdrop-blur-sm">
+    <div className="h-1 w-full bg-gradient-to-r from-sky-400 via-sky-500 to-blue-500" />
+    <div className="px-6 py-4 flex items-start justify-between gap-4 border-b border-sky-100 bg-sky-50/60">
+      <div>
+        <h2 className="text-lg font-semibold text-slate-900 tracking-tight">{title}</h2>
+        {description && <p className="mt-1 text-xs text-slate-600">{description}</p>}
       </div>
-      <div className="px-6 py-4 space-y-4">{children}</div>
-    </section>
+      {actions && (
+        <div className="text-xs text-slate-500 whitespace-nowrap font-medium">
+          {actions}
+        </div>
+      )}
+    </div>
+    <div className="px-6 py-4 space-y-4 bg-white/80">{children}</div>
+  </section>
 );
 
 const Input = ({ label, ...props }) => (
-    <label className="block text-sm font-medium text-slate-700">
-      <span>{label}</span>
-      <input
-          className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm shadow-inner focus:border-yellow-400 focus:ring-2 focus:ring-yellow-200"
-          {...props}
-      />
-    </label>
+  <label className="block text-sm font-medium text-slate-700">
+    <span>{label}</span>
+    <input
+      className="mt-1 w-full rounded-xl border border-sky-100 bg-white px-3 py-2 text-sm shadow-inner focus:border-sky-400 focus:ring-2 focus:ring-sky-100 transition"
+      {...props}
+    />
+  </label>
 );
 
 const Toggle = ({ label, checked, onChange }) => (
-    <label className="flex items-center gap-3 text-sm font-medium text-slate-700">
-      <input
-          type="checkbox"
-          className="h-4 w-4 rounded border-slate-300 text-yellow-400 focus:ring-yellow-400"
-          checked={checked}
-          onChange={(event) => onChange(event.target.checked)}
-      />
-      <span>{label}</span>
-    </label>
+  <label className="flex items-center gap-3 text-sm font-medium text-slate-700">
+    <input
+      type="checkbox"
+      className="h-4 w-4 rounded border-sky-200 text-sky-500 focus:ring-sky-400"
+      checked={checked}
+      onChange={(event) => onChange(event.target.checked)}
+    />
+    <span>{label}</span>
+  </label>
 );
 
 const Table = ({ headers, rows }) => (
-    <div className="overflow-x-auto">
-      <table className="min-w-full divide-y divide-slate-200 text-sm">
-        <thead className="bg-slate-100">
+  <div className="overflow-x-auto">
+    <table className="min-w-full divide-y divide-sky-100 text-sm">
+      <thead className="bg-sky-50/80">
         <tr>
           {headers.map((header) => (
-              <th
-                  key={header}
-                  className="px-4 py-2 text-left font-semibold text-slate-600 uppercase tracking-wide text-xs"
-              >
-                {header}
-              </th>
+            <th
+              key={header}
+              className="px-4 py-2 text-left font-semibold text-slate-700 uppercase tracking-wide text-xs"
+            >
+              {header}
+            </th>
           ))}
         </tr>
-        </thead>
-        <tbody className="divide-y divide-slate-100">
+      </thead>
+      <tbody className="divide-y divide-sky-50">
         {rows.length === 0 && (
-            <tr>
-              <td
-                  className="px-4 py-6 text-center text-slate-400 text-sm"
-                  colSpan={headers.length}
-              >
-                No data yet. Try creating one above.
-              </td>
-            </tr>
+          <tr>
+            <td
+              className="px-4 py-6 text-center text-slate-400 text-sm"
+              colSpan={headers.length}
+            >
+              No data yet. Try creating one above.
+            </td>
+          </tr>
         )}
         {rows.map((cells, index) => (
-            <tr
-                key={index}
-                className={
-                  index % 2 === 0
-                      ? 'bg-white hover:bg-slate-50'
-                      : 'bg-slate-50 hover:bg-slate-100'
-                }
-            >
-              {cells.map((cell, idx) => (
-                  <td
-                      key={idx}
-                      className={`px-4 py-3 text-slate-700 ${
-                          typeof cell === 'number' ? 'text-right' : ''
-                      }`}
-                  >
-                    {cell ?? '—'}
-                  </td>
-              ))}
-            </tr>
+          <tr
+            key={index}
+            className={
+              index % 2 === 0
+                ? "bg-white hover:bg-sky-50"
+                : "bg-sky-50 hover:bg-sky-100"
+            }
+          >
+            {cells.map((cell, idx) => (
+              <td
+                key={idx}
+                className={`px-4 py-3 text-slate-700 ${
+                  typeof cell === "number" ? "text-right" : ""
+                }`}
+              >
+                {cell ?? "—"}
+              </td>
+            ))}
+          </tr>
         ))}
-        </tbody>
-      </table>
-    </div>
+      </tbody>
+    </table>
+  </div>
 );
 
 function App() {
@@ -293,53 +293,53 @@ function App() {
   };
 
   return (
-      <div className="min-h-screen bg-gradient-to-b from-slate-100 to-slate-200">
-        <header className="bg-white shadow-sm">
-          <div className="bg-black">
-            <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2">
-              <div className="flex items-center gap-3">
-              <span className="inline-flex items-center rounded-[2px] bg-yellow-400 px-2 py-1 text-xs font-semibold uppercase tracking-wide text-black">
+      <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-50 text-slate-900">
+        <header className="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-sky-100 shadow-sm">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-sky-700">
                 Awesome University
               </span>
-                <span className="text-xs font-medium text-slate-100 uppercase tracking-[0.25em]">
+              <span className="text-xs font-medium text-slate-500 uppercase tracking-[0.25em]">
                 Computer Science
               </span>
-              </div>
-              <span className="text-xs text-slate-300">COMP0010 · Group 007</span>
             </div>
+            <span className="text-xs font-semibold text-sky-700">COMP0010 · Group 007</span>
           </div>
 
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-            <div>
-              <h1 className="text-3xl font-bold text-slate-900 tracking-tight">
-                Student Grades Management System
-              </h1>
-              <p className="mt-1 text-sm text-slate-600 max-w-2xl">
-                A simple admin interface for managing students, modules, registrations and grades.
-              </p>
-            </div>
-            <div className="flex items-center gap-3">
-              <button
-                  type="button"
-                  onClick={() => setIsSettingsOpen(true)}
-                  className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-800 shadow-sm hover:bg-slate-50 focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
-              >
-                Settings
-              </button>
-              <button
-                  onClick={loadAll}
-                  disabled={isLoading}
-                  className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold shadow focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 ${
-                      isLoading
-                          ? 'bg-yellow-200 text-slate-600 cursor-not-allowed'
-                          : 'bg-yellow-400 text-black hover:bg-yellow-300'
-                  }`}
-              >
-                {isLoading && (
-                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-black/40 border-t-transparent" />
-                )}
-                {isLoading ? 'Refreshing…' : 'Refresh Data'}
-              </button>
+          <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 pb-6">
+            <div className="flex items-start justify-between gap-4 flex-wrap">
+              <div>
+                <h1 className="text-3xl font-bold text-slate-900 tracking-tight">
+                  Student Grades Management System
+                </h1>
+                <p className="mt-1 text-sm text-slate-600 max-w-2xl">
+                  A modern console to manage students, modules, registrations, and grades with ease.
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <button
+                    type="button"
+                    onClick={() => setIsSettingsOpen(true)}
+                    className="rounded-full border border-sky-100 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-sky-200 hover:bg-sky-50"
+                >
+                  API Settings
+                </button>
+                <button
+                    onClick={loadAll}
+                    disabled={isLoading}
+                    className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold shadow-lg shadow-sky-200 focus:ring-2 focus:ring-sky-200 focus:ring-offset-1 ${
+                        isLoading
+                            ? 'bg-slate-300 text-slate-600 cursor-not-allowed'
+                            : 'bg-sky-600 text-white hover:bg-sky-700'
+                    }`}
+                >
+                  {isLoading && (
+                      <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/60 border-t-transparent" />
+                  )}
+                  {isLoading ? 'Refreshing…' : 'Refresh Data'}
+                </button>
+              </div>
             </div>
           </div>
         </header>
@@ -382,7 +382,7 @@ function App() {
                   <button
                       type="button"
                       onClick={() => setIsSettingsOpen(false)}
-                      className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                      className="rounded-full border border-sky-100 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:border-sky-200 hover:bg-sky-50"
                   >
                     Close
                   </button>
@@ -392,7 +392,7 @@ function App() {
                         setIsSettingsOpen(false);
                         loadAll();
                       }}
-                      className="rounded-lg bg-yellow-400 px-4 py-2 text-sm font-semibold text-black shadow hover:bg-yellow-300 focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
+                      className="rounded-full bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-sky-200 hover:bg-sky-700 focus:ring-2 focus:ring-sky-200 focus:ring-offset-1"
                   >
                     Save &amp; Refresh
                   </button>
@@ -415,30 +415,24 @@ function App() {
           )}
 
           <div className="grid gap-4 md:grid-cols-4">
-            <div className="rounded-lg border border-slate-200 bg-white px-4 py-3">
-              <p className="text-xs uppercase tracking-wide text-slate-500">Students</p>
-              <p className="mt-1 text-2xl font-semibold text-slate-900">
-                {students.length}
-              </p>
-            </div>
-            <div className="rounded-lg border border-slate-200 bg-white px-4 py-3">
-              <p className="text-xs uppercase tracking-wide text-slate-500">Modules</p>
-              <p className="mt-1 text-2xl font-semibold text-slate-900">
-                {modules.length}
-              </p>
-            </div>
-            <div className="rounded-lg border border-slate-200 bg-white px-4 py-3">
-              <p className="text-xs uppercase tracking-wide text-slate-500">Registrations</p>
-              <p className="mt-1 text-2xl font-semibold text-slate-900">
-                {registrations.length}
-              </p>
-            </div>
-            <div className="rounded-lg border border-slate-200 bg-white px-4 py-3">
-              <p className="text-xs uppercase tracking-wide text-slate-500">Grades</p>
-              <p className="mt-1 text-2xl font-semibold text-slate-900">
-                {grades.length}
-              </p>
-            </div>
+            {[{
+              label: 'Students',
+              value: students.length,
+            }, {
+              label: 'Modules',
+              value: modules.length,
+            }, {
+              label: 'Registrations',
+              value: registrations.length,
+            }, {
+              label: 'Grades',
+              value: grades.length,
+            }].map((item) => (
+              <div key={item.label} className="rounded-2xl border border-sky-100 bg-white/90 px-4 py-3 shadow-sm">
+                <p className="text-xs uppercase tracking-wide text-slate-500">{item.label}</p>
+                <p className="mt-1 text-2xl font-semibold text-sky-700">{item.value}</p>
+              </div>
+            ))}
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
@@ -485,10 +479,10 @@ function App() {
                   <button
                       type="submit"
                       disabled={isStudentSubmitting}
-                      className={`rounded-lg px-4 py-2 text-sm font-semibold text-white shadow focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 ${
+                      className={`rounded-full px-4 py-2 text-sm font-semibold text-white shadow-md shadow-sky-200 focus:ring-2 focus:ring-sky-200 focus:ring-offset-1 ${
                           isStudentSubmitting
-                              ? 'bg-slate-400 cursor-not-allowed'
-                              : 'bg-slate-900 hover:bg-black'
+                              ? 'bg-slate-300 cursor-not-allowed'
+                              : 'bg-sky-600 hover:bg-sky-700'
                       }`}
                   >
                     {isStudentSubmitting ? 'Creating…' : 'Create Student'}
@@ -542,10 +536,10 @@ function App() {
                   <button
                       type="submit"
                       disabled={isModuleSubmitting}
-                      className={`rounded-lg px-4 py-2 text-sm font-semibold text-white shadow focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 ${
+                      className={`rounded-full px-4 py-2 text-sm font-semibold text-white shadow-md shadow-sky-200 focus:ring-2 focus:ring-sky-200 focus:ring-offset-1 ${
                           isModuleSubmitting
-                              ? 'bg-slate-400 cursor-not-allowed'
-                              : 'bg-slate-900 hover:bg-black'
+                              ? 'bg-slate-300 cursor-not-allowed'
+                              : 'bg-sky-600 hover:bg-sky-700'
                       }`}
                   >
                     {isModuleSubmitting ? 'Creating…' : 'Create Module'}
@@ -559,13 +553,13 @@ function App() {
                     module.code,
                     module.name,
                     module.mnc ? (
-                        <span className="inline-flex items-center rounded-full bg-slate-900 px-2 py-0.5 text-xs font-medium text-white">
-                    Core
-                  </span>
+                        <span className="inline-flex items-center rounded-full bg-sky-600 px-2 py-0.5 text-xs font-medium text-white shadow-sm">
+                          Core
+                        </span>
                     ) : (
-                        <span className="inline-flex items-center rounded-full bg-slate-200 px-2 py-0.5 text-xs font-medium text-slate-700">
-                    Optional
-                  </span>
+                        <span className="inline-flex items-center rounded-full bg-sky-100 px-2 py-0.5 text-xs font-medium text-sky-700">
+                          Optional
+                        </span>
                     ),
                   ])}
               />
@@ -597,10 +591,10 @@ function App() {
                   <button
                       type="submit"
                       disabled={isRegistrationSubmitting}
-                      className={`w-full rounded-lg px-4 py-2 text-sm font-semibold text-white shadow focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 ${
+                      className={`w-full rounded-full px-4 py-2 text-sm font-semibold text-white shadow-md shadow-sky-200 focus:ring-2 focus:ring-sky-200 focus:ring-offset-1 ${
                           isRegistrationSubmitting
-                              ? 'bg-slate-400 cursor-not-allowed'
-                              : 'bg-slate-900 hover:bg-black'
+                              ? 'bg-slate-300 cursor-not-allowed'
+                              : 'bg-sky-600 hover:bg-sky-700'
                       }`}
                   >
                     {isRegistrationSubmitting ? 'Registering…' : 'Register Student'}
@@ -654,10 +648,10 @@ function App() {
                   <button
                       type="submit"
                       disabled={isGradeSubmitting}
-                      className={`w-full rounded-lg px-4 py-2 text-sm font-semibold text-white shadow focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 ${
+                      className={`w-full rounded-full px-4 py-2 text-sm font-semibold text-white shadow-md shadow-sky-200 focus:ring-2 focus:ring-sky-200 focus:ring-offset-1 ${
                           isGradeSubmitting
-                              ? 'bg-slate-400 cursor-not-allowed'
-                              : 'bg-slate-900 hover:bg-black'
+                              ? 'bg-slate-300 cursor-not-allowed'
+                              : 'bg-sky-600 hover:bg-sky-700'
                       }`}
                   >
                     {isGradeSubmitting ? 'Saving…' : 'Save Grade'}
