@@ -42,14 +42,14 @@ function Modules() {
           <Link underline="hover" color="inherit" href="/">
             Home
           </Link>
-          <Typography color="rgba(226,232,240,0.9)">Modules</Typography>
+          <Typography color="#1e293b">Modules</Typography>
         </Breadcrumbs>
 
         <Stack spacing={1}>
-          <Typography variant="h5" fontWeight={700} color="#f8fafc">
+          <Typography variant="h5" fontWeight={700} color="#0f172a">
             Module library
           </Typography>
-          <Typography color="rgba(226,232,240,0.8)">
+          <Typography color="#475569">
             Keep track of module identifiers and their availability status.
           </Typography>
         </Stack>
@@ -59,8 +59,8 @@ function Modules() {
           sx={{
             padding: { xs: 2, md: 3 },
             borderRadius: 3,
-            border: "1px solid rgba(255,255,255,0.08)",
-            background: "linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))",
+            border: "1px solid #dbeafe",
+            background: "linear-gradient(145deg, #ffffff, #f3f8ff)",
           }}
         >
           {error && <Alert color="error">{error}</Alert>}
@@ -69,7 +69,7 @@ function Modules() {
           )}
           {modules.length > 0 && (
             <Stack spacing={1.5}>
-              <Grid container sx={{ color: "rgba(226,232,240,0.8)" }}>
+              <Grid container sx={{ color: "#1e293b" }}>
                 <Grid item xs={2}>
                   <Typography fontWeight={700}>Module Code</Typography>
                 </Grid>
@@ -80,7 +80,7 @@ function Modules() {
                   <Typography fontWeight={700}>Is MNC</Typography>
                 </Grid>
               </Grid>
-              <Divider sx={{ borderColor: "rgba(255,255,255,0.08)" }} />
+              <Divider sx={{ borderColor: "#e2e8f0" }} />
               {modules.map((m) => {
                 return (
                   <Box
@@ -88,9 +88,9 @@ function Modules() {
                     sx={{
                       padding: 1.5,
                       borderRadius: 2,
-                      backgroundColor: "rgba(255,255,255,0.02)",
+                      backgroundColor: "#f8fbff",
                       "&:hover": {
-                        backgroundColor: "rgba(255,255,255,0.04)",
+                        backgroundColor: "#edf5ff",
                       },
                     }}
                   >
@@ -99,10 +99,10 @@ function Modules() {
                         <Typography fontWeight={600}>{m.code}</Typography>
                       </Grid>
                       <Grid item xs={8}>
-                        <Typography color="rgba(226,232,240,0.9)">{m.name}</Typography>
+                        <Typography color="#1e293b">{m.name}</Typography>
                       </Grid>
                       <Grid item xs={2}>
-                        <Typography color={m.mnc ? "#34d399" : "#fbbf24"}>
+                        <Typography color={m.mnc ? "#0ea5e9" : "#475569"}>
                           {m.mnc ? "Yes" : "No"}
                         </Typography>
                       </Grid>

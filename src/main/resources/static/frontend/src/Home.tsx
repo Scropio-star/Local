@@ -16,14 +16,14 @@ function Home() {
     <App>
       <Stack spacing={4}>
         <Breadcrumbs>
-          <Typography color="rgba(226,232,240,0.9)">Home</Typography>
+          <Typography color="#1e293b">Home</Typography>
         </Breadcrumbs>
 
         <Stack spacing={1}>
-          <Typography variant="h4" fontWeight={700} color="#f8fafc">
+          <Typography variant="h4" fontWeight={700} color="#0f172a">
             Modern academic dashboard
           </Typography>
-          <Typography color="rgba(226,232,240,0.8)">
+          <Typography color="#475569">
             Navigate through modules, students, and grades in a clean and cohesive
             interface.
           </Typography>
@@ -49,20 +49,20 @@ function Home() {
               <Card
                 elevation={0}
                 sx={{
-                  background: "linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))",
-                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "linear-gradient(145deg, #ffffff, #f0f6ff)",
+                  border: "1px solid #dbeafe",
                   borderRadius: 3,
                   height: "100%",
                 }}
               >
                 <CardActionArea href={item.href} sx={{ height: "100%" }}>
                   <CardContent>
-                    <Typography variant="h6" fontWeight={700} color="#f8fafc">
+                    <Typography variant="h6" fontWeight={700} color="#0f172a">
                       {item.title}
                     </Typography>
                     <Typography
                       variant="body2"
-                      color="rgba(226,232,240,0.7)"
+                      color="#475569"
                       sx={{ mt: 1.5, lineHeight: 1.6 }}
                     >
                       {item.description}
@@ -76,16 +76,16 @@ function Home() {
 
         <Box
           sx={{
-            background: "linear-gradient(145deg, rgba(56,189,248,0.15), rgba(125,211,252,0.05))",
-            border: "1px solid rgba(125,211,252,0.25)",
+            background: "linear-gradient(145deg, #e0f2fe, #f5faff)",
+            border: "1px solid #bfdbfe",
             borderRadius: 3,
             padding: { xs: 2.5, md: 3 },
           }}
         >
-          <Typography variant="h6" fontWeight={700} color="#e0f2fe">
+          <Typography variant="h6" fontWeight={700} color="#0f172a">
             Quick tip
           </Typography>
-          <Typography color="rgba(224,242,254,0.8)" sx={{ mt: 1 }}>
+          <Typography color="#1e3a8a" sx={{ mt: 1 }}>
             Use the navigation buttons above or the cards to move between sections
             seamlessly.
           </Typography>

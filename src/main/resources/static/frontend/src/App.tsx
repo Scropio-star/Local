@@ -19,19 +19,19 @@ function App(props: { children: React.ReactNode }) {
     <Box
       sx={{
         minHeight: "100vh",
-        background: "radial-gradient(circle at 10% 20%, #1f2937, #0b1223 45%, #070b14)",
+        background: "linear-gradient(135deg, #e6f0ff 0%, #f6faff 50%, #ffffff 100%)",
         padding: { xs: 3, md: 6 },
-        color: "#e2e8f0",
+        color: "#0f172a",
       }}
     >
       <Container maxWidth="lg" disableGutters>
         <Paper
           elevation={0}
           sx={{
-            backgroundColor: "rgba(15, 23, 42, 0.7)",
-            border: "1px solid rgba(255, 255, 255, 0.05)",
+            backgroundColor: "rgba(255, 255, 255, 0.95)",
+            border: "1px solid #dbeafe",
             borderRadius: 4,
-            boxShadow: "0px 25px 80px rgba(0, 0, 0, 0.35)",
+            boxShadow: "0px 20px 60px rgba(37, 99, 235, 0.12)",
             backdropFilter: "blur(10px)",
             padding: { xs: 3, md: 4 },
           }}
@@ -44,12 +44,12 @@ function App(props: { children: React.ReactNode }) {
               justifyContent="space-between"
             >
               <Stack spacing={0.5}>
-                <Typography variant="h4" fontWeight={700} color="#f8fafc">
+                <Typography variant="h4" fontWeight={700} color="#0f172a">
                   Academic Console
                 </Typography>
                 <Typography
                   variant="body2"
-                  color="rgba(226,232,240,0.75)"
+                  color="#475569"
                 >
                   Streamlined management for modules, students, and grades.
                 </Typography>
@@ -62,13 +62,13 @@ function App(props: { children: React.ReactNode }) {
                     variant="outlined"
                     size="small"
                     sx={{
-                      borderColor: "rgba(255,255,255,0.2)",
-                      color: "#e2e8f0",
+                      borderColor: "#bfdbfe",
+                      color: "#0f172a",
                       textTransform: "none",
                       backdropFilter: "blur(4px)",
                       ":hover": {
-                        borderColor: "rgba(255,255,255,0.35)",
-                        backgroundColor: "rgba(255,255,255,0.04)",
+                        borderColor: "#60a5fa",
+                        backgroundColor: "rgba(96, 165, 250, 0.08)",
                       },
                     }}
                   >
@@ -78,7 +78,7 @@ function App(props: { children: React.ReactNode }) {
               </Stack>
             </Stack>
 
-            <Box sx={{ borderTop: "1px solid rgba(255,255,255,0.06)", pt: 3 }}>
+            <Box sx={{ borderTop: "1px solid #e2e8f0", pt: 3 }}>
               {props.children}
             </Box>
           </Stack>

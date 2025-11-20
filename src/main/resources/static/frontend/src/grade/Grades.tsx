@@ -41,25 +41,25 @@ function GradeRow(props: { grade: EntityModelGrade }) {
       sx={{
         padding: 1.5,
         borderRadius: 2,
-        backgroundColor: "rgba(255,255,255,0.02)",
+        backgroundColor: "#f8fbff",
         "&:hover": {
-          backgroundColor: "rgba(255,255,255,0.04)",
+          backgroundColor: "#edf5ff",
         },
       }}
     >
       <Grid container spacing={1} alignItems="center">
         <Grid item xs={4}>
-          <Typography color="rgba(226,232,240,0.9)">
+          <Typography color="#1e293b">
             {student && `${student.firstName} ${student.lastName} (${student.id})`}
           </Typography>
         </Grid>
         <Grid item xs={4}>
-          <Typography color="rgba(226,232,240,0.9)">
+          <Typography color="#1e293b">
             {module && `${module.code} ${module.name}`}
           </Typography>
         </Grid>
         <Grid item xs={4}>
-          <Typography fontWeight={700} color="#38bdf8">
+          <Typography fontWeight={700} color="#0ea5e9">
             {grade.score}
           </Typography>
         </Grid>
@@ -94,14 +94,14 @@ function Grades() {
           <Link underline="hover" color="inherit" href="/">
             Home
           </Link>
-          <Typography color="rgba(226,232,240,0.9)">Grades</Typography>
+          <Typography color="#1e293b">Grades</Typography>
         </Breadcrumbs>
 
         <Stack spacing={1}>
-          <Typography variant="h5" fontWeight={700} color="#f8fafc">
+          <Typography variant="h5" fontWeight={700} color="#0f172a">
             Performance tracker
           </Typography>
-          <Typography color="rgba(226,232,240,0.8)">
+          <Typography color="#475569">
             Monitor scores by pairing students with their registered modules.
           </Typography>
         </Stack>
@@ -111,15 +111,15 @@ function Grades() {
           sx={{
             padding: { xs: 2, md: 3 },
             borderRadius: 3,
-            border: "1px solid rgba(255,255,255,0.08)",
-            background: "linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))",
+            border: "1px solid #dbeafe",
+            background: "linear-gradient(145deg, #ffffff, #f3f8ff)",
           }}
         >
           {error && <Alert color="error">{error}</Alert>}
           {!error && grades.length < 1 && <Alert color="warning">No grades</Alert>}
           {grades.length > 0 && (
             <Stack spacing={1.5}>
-              <Grid container sx={{ color: "rgba(226,232,240,0.8)" }}>
+              <Grid container sx={{ color: "#1e293b" }}>
                 <Grid item xs={4}>
                   <Typography fontWeight={700}>Student</Typography>
                 </Grid>
@@ -130,7 +130,7 @@ function Grades() {
                   <Typography fontWeight={700}>Score</Typography>
                 </Grid>
               </Grid>
-              <Divider sx={{ borderColor: "rgba(255,255,255,0.08)" }} />
+              <Divider sx={{ borderColor: "#e2e8f0" }} />
               {grades.map((g) => {
                 return <GradeRow key={g.id} grade={g} />;
               })}

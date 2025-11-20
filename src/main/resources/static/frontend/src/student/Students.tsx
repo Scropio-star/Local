@@ -42,14 +42,14 @@ function Students() {
           <Link underline="hover" color="inherit" href="/">
             Home
           </Link>
-          <Typography color="rgba(226,232,240,0.9)">Students</Typography>
+          <Typography color="#1e293b">Students</Typography>
         </Breadcrumbs>
 
         <Stack spacing={1}>
-          <Typography variant="h5" fontWeight={700} color="#f8fafc">
+          <Typography variant="h5" fontWeight={700} color="#0f172a">
             Student roster
           </Typography>
-          <Typography color="rgba(226,232,240,0.8)">
+          <Typography color="#475569">
             Review student identities and their key account information.
           </Typography>
         </Stack>
@@ -59,8 +59,8 @@ function Students() {
           sx={{
             padding: { xs: 2, md: 3 },
             borderRadius: 3,
-            border: "1px solid rgba(255,255,255,0.08)",
-            background: "linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))",
+            border: "1px solid #dbeafe",
+            background: "linear-gradient(145deg, #ffffff, #f3f8ff)",
           }}
         >
           {error && <Alert color="error">{error}</Alert>}
@@ -69,7 +69,7 @@ function Students() {
           )}
           {students.length > 0 && (
             <Stack spacing={1.5}>
-              <Grid container sx={{ color: "rgba(226,232,240,0.8)" }}>
+              <Grid container sx={{ color: "#1e293b" }}>
                 <Grid item xs={2}>
                   <Typography fontWeight={700}>Student ID</Typography>
                 </Grid>
@@ -86,7 +86,7 @@ function Students() {
                   <Typography fontWeight={700}>Email</Typography>
                 </Grid>
               </Grid>
-              <Divider sx={{ borderColor: "rgba(255,255,255,0.08)" }} />
+              <Divider sx={{ borderColor: "#e2e8f0" }} />
               {students.map((s) => {
                 return (
                   <Box
@@ -94,9 +94,9 @@ function Students() {
                     sx={{
                       padding: 1.5,
                       borderRadius: 2,
-                      backgroundColor: "rgba(255,255,255,0.02)",
+                      backgroundColor: "#f8fbff",
                       "&:hover": {
-                        backgroundColor: "rgba(255,255,255,0.04)",
+                        backgroundColor: "#edf5ff",
                       },
                     }}
                   >
@@ -105,22 +105,22 @@ function Students() {
                         <Typography fontWeight={600}>{s.id}</Typography>
                       </Grid>
                       <Grid item xs={2}>
-                        <Typography color="rgba(226,232,240,0.9)">
+                        <Typography color="#1e293b">
                           {s.firstName}
                         </Typography>
                       </Grid>
                       <Grid item xs={2}>
-                        <Typography color="rgba(226,232,240,0.9)">
+                        <Typography color="#1e293b">
                           {s.lastName}
                         </Typography>
                       </Grid>
                       <Grid item xs={2}>
-                        <Typography color="rgba(226,232,240,0.9)">
+                        <Typography color="#1e293b">
                           {s.username}
                         </Typography>
                       </Grid>
                       <Grid item xs={4}>
-                        <Typography color="rgba(226,232,240,0.9)">
+                        <Typography color="#1e293b">
                           {s.email}
                         </Typography>
                       </Grid>

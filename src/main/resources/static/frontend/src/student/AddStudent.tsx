@@ -25,16 +25,16 @@ function AddStudent(props: { update: Function }) {
       sx={{
         padding: { xs: 2, md: 3 },
         borderRadius: 3,
-        border: "1px solid rgba(255,255,255,0.08)",
-        background: "linear-gradient(145deg, rgba(16,185,129,0.12), rgba(74,222,128,0.08))",
+        border: "1px solid #dbeafe",
+        background: "linear-gradient(145deg, #ffffff, #edf5ff)",
       }}
     >
       <Stack spacing={2.5}>
         <Stack spacing={0.5}>
-          <Typography variant="h6" fontWeight={700} color="#f8fafc">
+          <Typography variant="h6" fontWeight={700} color="#0f172a">
             Add or update a student
           </Typography>
-          <Typography color="rgba(226,232,240,0.8)">
+          <Typography color="#475569">
             Capture identity information and contact details in one place.
           </Typography>
         </Stack>
@@ -91,7 +91,7 @@ function AddStudent(props: { update: Function }) {
           <Button
             variant="outlined"
             onClick={() => setStudent({})}
-            sx={{ borderColor: "rgba(255,255,255,0.2)", color: "#e2e8f0" }}
+            sx={{ borderColor: "#bfdbfe", color: "#0f172a", ":hover": { borderColor: "#60a5fa" } }}
           >
             Clear
           </Button>
