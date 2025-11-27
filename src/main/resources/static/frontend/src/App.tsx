@@ -1,93 +1,51 @@
-import {
-  Box,
-  Button,
-  Container,
-  Paper,
-  Stack,
-  Typography,
-} from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
+import { NavLink, Outlet } from 'react-router-dom';
 
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Modules", href: "/modules" },
-  { label: "Students", href: "/students" },
-  { label: "Grades", href: "/grades" },
+const navigation = [
+  { label: 'Home', path: '/' },
+  { label: 'Students', path: '/students' },
+  { label: 'Modules', path: '/modules' },
+  { label: 'Grades', path: '/grades' },
+  { label: 'Registrations', path: '/registrations' },
+  { label: 'Profile', path: '/profile' },
 ];
 
-function App(props: { children: React.ReactNode }) {
-  return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        background: "linear-gradient(135deg, #e6f0ff 0%, #f6faff 50%, #ffffff 100%)",
-        padding: { xs: 3, md: 6 },
-        color: "#0f172a",
-      }}
-    >
-      <Container maxWidth="lg" disableGutters>
-        <Paper
-          elevation={0}
-          sx={{
-            backgroundColor: "rgba(255, 255, 255, 0.95)",
-            border: "1px solid #dbeafe",
-            borderRadius: 4,
-            boxShadow: "0px 20px 60px rgba(37, 99, 235, 0.12)",
-            backdropFilter: "blur(10px)",
-            padding: { xs: 3, md: 4 },
-          }}
-        >
-          <Stack spacing={3}>
-            <Stack
-              direction={{ xs: "column", sm: "row" }}
-              spacing={2}
-              alignItems={{ xs: "flex-start", sm: "center" }}
-              justifyContent="space-between"
+const App = () => (
+  <div className="min-h-screen bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.06),transparent_25%),radial-gradient(circle_at_80%_0%,rgba(90,125,255,0.12),transparent_30%),linear-gradient(180deg,#040507_0%,#05060a_60%,#040507_100%)] text-slate-50">
+    <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10 sm:py-14">
+      <header className="flex items-center justify-between rounded-full bg-white/5 px-6 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl ring-1 ring-white/10">
+        <div className="flex items-center gap-3">
+          <div className="h-9 w-9 rounded-2xl bg-gradient-to-br from-sky-300 via-blue-500 to-indigo-700 shadow-inner"></div>
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-slate-300">UCL COMP0010</p>
+            <p className="text-lg font-semibold">Management Centre</p>
+          </div>
+        </div>
+        <nav className="hidden items-center gap-2 rounded-full bg-white/5 px-2 py-1 text-sm font-medium text-slate-200 shadow-inner shadow-black/30 ring-1 ring-white/10 sm:flex">
+          {navigation.map((item) => (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className={({ isActive }) =>
+                `px-4 py-2 rounded-full transition duration-200 ${
+                  isActive
+                    ? 'bg-white text-slate-900 shadow-lg shadow-white/20'
+                    : 'hover:bg-white/10 hover:text-white'
+                }`
+              }
+              end={item.path === '/'}
             >
-              <Stack spacing={0.5}>
-                <Typography variant="h4" fontWeight={700} color="#0f172a">
-                  Academic Console
-                </Typography>
-                <Typography
-                  variant="body2"
-                  color="#475569"
-                >
-                  Streamlined management for modules, students, and grades.
-                </Typography>
-              </Stack>
-              <Stack direction="row" spacing={1} flexWrap="wrap" rowGap={1}>
-                {navLinks.map((link) => (
-                  <Button
-                    key={link.href}
-                    component={RouterLink}
-                    to={link.href}
-                    variant="outlined"
-                    size="small"
-                    sx={{
-                      borderColor: "#bfdbfe",
-                      color: "#0f172a",
-                      textTransform: "none",
-                      backdropFilter: "blur(4px)",
-                      ":hover": {
-                        borderColor: "#60a5fa",
-                        backgroundColor: "rgba(96, 165, 250, 0.08)",
-                      },
-                    }}
-                  >
-                    {link.label}
-                  </Button>
-                ))}
-              </Stack>
-            </Stack>
+              {item.label}
+            </NavLink>
+          ))}
+        </nav>
+        <div className="rounded-full bg-white/5 px-3 py-1 text-xs font-semibold text-slate-200 ring-1 ring-white/10 shadow-inner shadow-black/30">
+          API password: <span className="text-white">team007</span>
+        </div>
+      </header>
 
-            <Box sx={{ borderTop: "1px solid #e2e8f0", pt: 3 }}>
-              {props.children}
-            </Box>
-          </Stack>
-        </Paper>
-      </Container>
-    </Box>
-  );
-}
+      <Outlet />
+    </div>
+  </div>
+);
 
 export default App;
